@@ -1,0 +1,78 @@
+<footer>
+    <center class="footer-bottom">
+        <div class="container">
+            <div class="copyright">Copyright &copy; 2017&nbsp;&nbsp;Mr Super Blog</div><br>
+            <ul class="footer-nav">
+                <li>Powered by <span rel="nofollow">Typecho</span></li>
+                <li>Optimized by <span>Mr Super</span></li>
+                <li><span rel="nofollow">网站地图- 蜀ICP备17030605号</span></li>
+            </ul>
+        </div>
+    </center>
+    </div>
+</footer>
+
+<script src="/static/index/js/jquery-2.1.4.min.js"></script>
+<script src="/static/index/js/bootstrap.min.js"></script>
+<script src="/static/index/js/material.min.js"></script>
+<script src="/static/index/js/ripples.min.js"></script>
+<script src="/static/index/js/jquery.scrollUp.min.js"></script>
+
+
+<block name="js"></block>
+<script>
+// 搜索
+function check(){
+var o = document.getElementById("search-btn");
+if(o.value == ''){
+return false;
+}
+}
+
+
+
+
+
+$(document).ready(function(){
+	$(document).off('click.bs.dropdown.data-api');
+});
+$(document).ready(function(){
+	dropdownOpen();//调用
+});
+/**
+ * 鼠标划过就展开子菜单，免得需要点击才能展开
+ */
+function dropdownOpen() {
+
+	var $dropdownLi = $('li.dropdown');
+
+	$dropdownLi.mouseover(function() {
+		$(this).addClass('open');
+	}).mouseout(function() {
+		$(this).removeClass('open');
+	});
+};
+</script>
+<script type="text/javascript">
+    $(function() {
+        $(window).scroll(function(){
+            var scrolltop=$(this).scrollTop();
+            if(scrolltop>=200){
+                $("#elevator_item").show();
+            }else{
+                $("#elevator_item").hide();
+            }
+        });
+        $("#elevator").click(function(){
+            $("html,body").animate({scrollTop: 0}, 500);
+        });
+        $(".qr").hover(function(){
+            $(".qr-popup").show();
+        },function(){
+            $(".qr-popup").hide();
+        });
+    });
+</script>
+
+</body>
+</html>

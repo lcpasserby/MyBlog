@@ -1,0 +1,87 @@
+{include file="common/header"}
+
+<block name="billboard"></block>
+
+
+
+<block name="css">
+    <link rel="stylesheet" href="/static/index/static/share/dist/css/share.min.css">
+    <link rel="stylesheet" href="/static/index/static/share/demo/life.css">
+    <style>
+        .spig {display:block;width:130px;height:170px;position:absolute;bottom: 300px;left:160px;z-index:9999;}
+        #message{color :#191919;border: 1px solid #c4c4c4;background:#ddd;-moz-border-radius:5px;-webkit-border-radius:5px;border-radius:5px;min-height:1em;padding:5px;top:-45px;position:absolute;text-align:center;width:auto !important;z-index:10000;-moz-box-shadow:0 0 15px #eeeeee;-webkit-box-shadow:0 0 15px #eeeeee;border-color:#eeeeee;box-shadow:0 0 15px #eeeeee;outline:none;}
+        .mumu{width:130px;height:170px;cursor: move;background:url(http://www.munyin.com/spig.png) no-repeat;}
+    </style>
+</block>
+<block name="content">
+	<div class="container big-container">
+
+	<div class="row">
+	    <div class="col-md-9">
+        <div class="alert alert-warning">您正在查看：&nbsp;“{$catetype.catename}”&nbsp;&nbsp;分类下的文章</div>
+	        <div class="panel panel-default">
+	            <div class="panel-body">
+	                <h3 class="post-title">
+	                    <a href="javascript:;" title="{$art.title}">{$art.title}</a>
+	                </h3>
+	                <div class="post-meta">
+	                    <span class="ion-calendar">
+	                        <span class="post-meta-color">  {$art.time|date="Y-m-d",###}&emsp;
+	                    </span>
+	                    <a href="javascript:;" style="color:#777" class="ion-heart" id="like_num">
+	                        <span class="post-meta-color">$art.zan</span>&emsp;
+	                    </a>
+	                    <span class="ion-eye">
+	                        <span class="post-meta-color"> {$art.click}</span>&emsp;
+	                    </span>
+	                    <span class="ion-ios-pricetags-outline">
+	                        <span class="post-meta-color">PHP </span>&emsp;
+	                    </span>
+	                </div>
+	                <div style="margin-top: -8px;">&nbsp;</div>
+	                <div class="post-content">
+	                    {$art.content|htmlspecialchars_decode}
+	                </div>
+	            </div>
+	        </div>
+	       
+
+	        <!--上一页，下一页-->
+	        <div id="pre-page">
+	            <span>
+	                <span style="color: #333">上一篇：&nbsp;</span>
+	                <a href="{if condition="$pre neq ''"}{:url('index/art/detail',array('id'=>$pre['id']))}{else /}#{/if}" rel="prev">{if condition="$pre neq ''"}{$pre.title}{else /}无{/if}</a>
+	            </span>
+	            <span>
+	                <span style="color: #333">下一篇：&nbsp;</span>
+	                <a href="{if condition="$next neq ''"}{:url('index/art/detail',array('id'=>$next['id']))}{else /}#{/if}" rel="prev">{if condition="$next neq ''"}{$next.title}{else /}无{/if}</a>
+	            </span>
+	         
+	        </div>
+
+
+	    </div>
+	     {include file="common/side"}
+	        <!--返回顶部-->
+	        <div id="elevator_item" style="display: block;">
+	            <a id="elevator" onclick="return false;" title="回到顶部"></a>
+            </div>
+
+	</div>
+</div>
+</block>
+<block name="billboard"></block>
+
+<block name="js">
+
+    <script type="text/javascript" src="/static/index/static/ueditor/third-party/SyntaxHighlighter/shCore.js"></script>
+    <link rel="stylesheet" href="/static/index/static/ueditor/third-party/SyntaxHighlighter/shCoreDefault.css">
+    <script type="text/javascript">
+        SyntaxHighlighter.all();
+    </script>
+
+
+</block>
+
+
+{include file="common/footer"}

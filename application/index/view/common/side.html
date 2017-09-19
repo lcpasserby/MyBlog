@@ -1,0 +1,68 @@
+<div class="col-md-3">
+
+        <form method="get" action="{:url('index/search/lst')}" class="panel-body">
+            <div class="input-group">
+                <div class="form-control-wrapper">
+                    <input type="text" name="keywords" class="form-control" placeholder="搜索"
+                           size="32"/>
+                </div>
+                <span class="input-group-btn">
+                    <button class="btn btn-primary btn-fab btn-raised mdi-action-search" onsubmit="return check()" value="" id="search-btn"
+                            type="submit">
+                    </button>
+                </span>
+            </div>
+        </form>
+         <!--<div id="calendar" class="calendar" ></div>-->
+      <br>
+      <div class="panel panels panel-info ">
+          <a class="panel-heading" onclick="$(&#39;.recent_posts_box&#39;).slideToggle()" href="javascript:;">
+              <h3 class="panel-title">Mr Super`S BLOG</h3>
+          </a>
+          <div class="blog-sidebar-logo">
+              <img src="/static/index/images/default_avatar.png">
+          </div>
+          <div class="blog-sidebar-count blog-sidebar-padding">
+              <div class="blog-sidebar-count-left">
+                  <p class="blog-sidebar-count-p">{$count}</p>
+                  <span class="blog-sidebar-count-span">文章</span>
+              </div>
+              <div class="blog-sidebar-count-right">
+                  <p class="blog-sidebar-count-p">15</p>
+                  <span class="blog-sidebar-count-span">标签</span>
+              </div>
+              <div style="clear: both;"></div>
+              <p>
+                  <span style="font-weight: bolder;font-size: 16px;">自我介绍：</span>博主网名—Bob,一个名90后的程序猿,计算机软件工程毕业，现从事
+                    的是网站web开发。手机控，喜欢捣鼓新鲜玩意儿。业余爱好是玩游戏，跑步，旅游。喜欢交新朋友。
+              </p>
+              <p>
+                  <span style="font-weight: bolder;font-size: 16px;">座右铭：</span>迷茫是因为能力还配不上梦想！
+              </p>
+          </div>
+      </div>
+        <br>
+
+        <div class="panel panel-info">
+            <a class="panel-heading" onclick="$('.recent_posts_box').slideToggle()" href="javascript:;">
+                <h3 class="panel-title">最热文章</h3>
+            </a>
+            <div class="recent_posts_box">
+                {volist name="hotart" id="art"}
+                    <a href="{:url('index/art/detail',array('id'=>$art['id']))}" class="item">{$art.title}</a>
+                {/volist}
+            </div>
+        </div>
+        <br />
+        <div class="panel panel-info">
+            <a class="panel-heading" onclick="$('.friend_link').slideToggle()" href="javascript:;">
+                <h3 class="panel-title">友情链接</h3>
+            </a>
+            <div class="friend_link">
+        {volist name="res" id="links"}
+                <a class="item" href="{$links.url}" title="{$links.desc}" target="_blank">{$links.title}</a>
+        {/volist}
+            </div>
+        </div>
+
+    </div>
