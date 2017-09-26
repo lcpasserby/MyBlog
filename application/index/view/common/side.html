@@ -1,10 +1,10 @@
 <div class="col-md-3">
 
-        <form method="get" action="{:url('index/search/lst')}" class="panel-body">
+        <form method="get" action="/search" class="panel-body">
             <div class="input-group">
                 <div class="form-control-wrapper">
-                    <input type="text" name="keywords" class="form-control" placeholder="搜索"
-                           size="32"/>
+                    <input type="search" name="keywords" class="form-control" placeholder="搜索" 
+                          required="required" size="32"/>
                 </div>
                 <span class="input-group-btn">
                     <button class="btn btn-primary btn-fab btn-raised mdi-action-search" onsubmit="return check()" value="" id="search-btn"

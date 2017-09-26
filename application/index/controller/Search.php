@@ -8,9 +8,10 @@ class Search extends Base
     {
       $k = input('get.keywords');
       $art = new ArticleModel();
-    	$list =  $art->where('keywords|title','like','%'.$k.'%' )->order('time desc')->paginate(5,false,$config=['query'=>array('keywords'=>$k)]);
+    	$list =  $art->where('keywords|title','like','%'.$k.'%' )->order('update_time desc')->paginate(5,false,$config=['query'=>array('keywords'=>$k)]);
       $this->assign([
         'list'=>$list,
+        'num' => count($list),
         'keywords'=>$k,
     ]);
 

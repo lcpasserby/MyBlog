@@ -7,23 +7,27 @@
         <block name="content">
 
     <div class="col-md-9">
-        <div class="alert alert-warning">您正在查看：&nbsp;“{$catetype.catename}”&nbsp;&nbsp;分类下的文章</div>
+        <!-- 路径导航 -->
+             <ol class="breadcrumb">
+                    <li><a href="/art">首页</a></li>
+                    <li class="active">{$catetype.catename}</li>
+            </ol>
        {volist name="list" id="post"}
             <div class="panel panel-default">
                 <div class="panel-body">
                     <h3 class="post-title">
-                        <a href="{:url('art/detail',array('id'=>$post['id']))}" title="{$post.title}">{$post.title}</a>
+                        <a href="{:url('index/art/detail',array('id'=>$post['id']))}" title="{$post.title}">{$post.title}</a>
                     </h3>
                     <div class="post-meta">
                         <span class="ion-calendar">
                             <span class="post-meta-color">
-                              {$post.time|date="Y年m月d日",###}
+                              {$post.create_time}
                             </span>&emsp;
                         </span>
-                        <a href="javascript:;" style="color:#777" class="ion-heart"
+                      <!--   <a href="javascript:;" style="color:#777" class="ion-heart"
                            onclick="likeNum('{$post.id}', $(this))">
                             <span class="post-meta-color"> $post.zan</span>&emsp;
-                        </a>
+                        </a> -->
                         <span class="ion-eye">
                             <span class="post-meta-color"> {$post.click}</span>&emsp;
                         </span>
@@ -36,7 +40,7 @@
                     </div>
 
                     <div class="post-content more">
-                        <a href="{:url('art/detail',array('id'=>$post['id']))}">
+                        <a href="{:url('index/art/detail',array('id'=>$post['id']))}">
                             阅读全文
                         </a>
                     </div>

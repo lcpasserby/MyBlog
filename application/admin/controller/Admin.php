@@ -20,7 +20,7 @@ class Admin extends Base
 
 			$data=[
     			'username'=>input('username'),
-    			'password'=>input('password'),
+    			'password'=>encrypt(input('password')),
     		];
     		$validate = \think\Loader::validate('Admin');
     		if(!$validate->scene('add')->check($data)){
@@ -45,7 +45,7 @@ class Admin extends Base
     			'username'=>input('username'),
     		];
     		if(input('password')){
-				$data['password']=md5(input('password'));
+				$data['password']=encrypt(input('password'));
 			}else{
 				$data['password']=$admins['password'];
 			}

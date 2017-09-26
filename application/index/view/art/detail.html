@@ -15,10 +15,15 @@
 </block>
 <block name="content">
 	<div class="container big-container">
-
+  
 	<div class="row">
 	    <div class="col-md-9">
-        <div class="alert alert-warning">您正在查看：&nbsp;“{$catetype.catename}”&nbsp;&nbsp;分类下的文章</div>
+	    	<!-- 路径导航 -->
+	    	 <ol class="breadcrumb">
+  					<li><a href="/art">首页</a></li>
+  					<li><a href="{:url('index/cate/lst',array('id'=>$catetype['id']))}">{$catetype.catename}</a></li>
+ 					 <li class="active">{$art.title}</li>
+			</ol>
 	        <div class="panel panel-default">
 	            <div class="panel-body">
 	                <h3 class="post-title">
@@ -26,16 +31,16 @@
 	                </h3>
 	                <div class="post-meta">
 	                    <span class="ion-calendar">
-	                        <span class="post-meta-color">  {$art.time|date="Y-m-d",###}&emsp;
+	                        <span class="post-meta-color">  {$art.create_time|date="Y年m月d日",###}&emsp;
 	                    </span>
-	                    <a href="javascript:;" style="color:#777" class="ion-heart" id="like_num">
+	                   <!--  <a href="javascript:;" style="color:#777" class="ion-heart" id="like_num">
 	                        <span class="post-meta-color">$art.zan</span>&emsp;
-	                    </a>
+	                    </a> -->
 	                    <span class="ion-eye">
 	                        <span class="post-meta-color"> {$art.click}</span>&emsp;
 	                    </span>
 	                    <span class="ion-ios-pricetags-outline">
-	                        <span class="post-meta-color">PHP </span>&emsp;
+	                        <span class="post-meta-color">{$catetype.catename} </span>&emsp;
 	                    </span>
 	                </div>
 	                <div style="margin-top: -8px;">&nbsp;</div>
